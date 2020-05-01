@@ -1,7 +1,5 @@
 #!/bin/bash
-
 docker network create $PROJECT_NAME
-
 docker run -d \
     --network $PROJECT_NAME \
     -e 'ACCEPT_EULA=Y' \
@@ -20,7 +18,7 @@ docker exec sqltestdb /opt/mssql-tools/bin/sqlcmd \
 
 docker run -d \
     --network $PROJECT_NAME \
-    --name dataload \x
+    --name dataload \
     -e "SQLFQDN=sqltestdb" \
     -e "SQLUSER=sa" \
     -e "SQLPASS=localtestpw123@" \
